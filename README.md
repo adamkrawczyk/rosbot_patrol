@@ -10,7 +10,7 @@ Patrol area is a task for robot defined in 4 points.
 4. Informing owner when it's real threat
 
 This project is focused on maintaning your house/office secure when no one is inside and provide that by following rosbot project.
-We will use rosbot platform with astra camera, ESP-32 microchips with motion sensor and external computer taking care of image processing.
+We will use rosbot platform with astra camera, ESP-32 microchips with motion sensor(RPI HC-SR501) and external computer taking care of image processing.
 
 Because project covers many fields I will show you and explain how to configure ewerything properly. We also devide project for simulation part and real robot part, this should give clear view about whole project.
 
@@ -27,10 +27,11 @@ Because project covers many fields I will show you and explain how to configure 
 
    `$ git clone https://github.com/husarion/rosbot_description.git`
 
-3. For image processing my advice is to use nvidia card with CUDA enabled (I won't show you how to do that because it's horrible).
+3. For image processing my advice is to use nvidia card with CUDA enabled (I won't show you how to do that because it's not the point).
 4. You can download whole package from github 
     a)simulation `$ git clone https://github.com/adamkrawczyk/rosbot_patrol_simulation.git`
-    b)real_robot `$ git clone `
+    b)real_robot `$ git clone https://github.com/adamkrawczyk/rosbot_patrol.git`
+    see my repositories - [github-adam-krawczyk](https://github.com/adamkrawczyk)
 
 
 ## Starting poject step by step:
@@ -791,6 +792,8 @@ The construct have very nice method to have this points so follow him with this 
 
 [how to get goal points](https://www.youtube.com/watch?v=p-ZG6E-PZVA&t=7s) start at 30:00. 
 
+![how_to_get_points](https://user-images.githubusercontent.com/29305346/62054606-35062600-b21a-11e9-9665-750dd296388d.png)
+
 So in our case to got this point we can start gmapping and drive robot to desired point
 
 `$ roslaunch rosbot_patrol_simulation simulation_gmapping.launch`
@@ -863,6 +866,8 @@ rooms:
     angle: 0
 
 ``` 
+![rosbot_room_plan](https://user-images.githubusercontent.com/29305346/62054987-fde44480-b21a-11e9-9eb6-30d4f4706570.png)
+
 This are points for model.world world remember to set point0 to all zeroes - it's point to where robot will be comming back after patrolling room.
 
 
@@ -993,6 +998,8 @@ $ rostopic pub /motion_trigger rosbot_patrol_simulation/EspTrigger "id: 1
 move: 1" 
 ``` 
 with appropirate id numer. 
+
+![rosbot_patrol_final](https://user-images.githubusercontent.com/29305346/62055868-b5c62180-b21c-11e9-8cba-ab023da25fe0.png)
 
 # Real robot part
 
@@ -1573,6 +1580,8 @@ If we already are able to drive on this map we have to find coordinates to where
 
 [how to get goal points](https://www.youtube.com/watch?v=p-ZG6E-PZVA&t=7s) start at 30:00. 
 
+![how_to_get_points](https://user-images.githubusercontent.com/29305346/62054606-35062600-b21a-11e9-9665-750dd296388d.png)
+
 Once we have points lets create yaml file with those points.
 In rosbot_patrol pkg create new folder called params
 `$ cd ..`
@@ -1772,6 +1781,11 @@ In package.xml paste:
 ```
 
 Build this with `$ catkin_make install` . This should work so now we are able to setup arduino IDE to do that follow official instructions:
+
+Connect motion sensor to ESP32:
+
+![motion_sensor_esp](https://user-images.githubusercontent.com/29305346/62054012-0b98ca80-b219-11e9-9731-3729d16baeb1.png)
+
 
 !! Start at point 2.2 [setup arduino IDE](http://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup)
 
