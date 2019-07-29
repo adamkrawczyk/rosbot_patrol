@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+    <node pkg="image_transport" type="republish" name="rgb_decompress" args=" compressed in:=/rgb_republish raw out:=/rgb_raw" respawn="true">
+        <param name="compressed/mode" value="color"/>
+    </node>
+
+    <include file="$(find rosbot_patrol)/launch/darknet_yolo_only.launch"/>
+
+</launch>
+

@@ -1,0 +1,18 @@
+<launch >
+
+<node pkg="rosserial_python" type="serial_node.py" name="esp_client1"  respawn="true">
+<param name="port" value="tcp"/>
+<param name="tcp_port" value="11411"/>
+</node>
+
+<node pkg="rosserial_python" type="serial_node.py" name="esp_client2"  respawn="true">
+<param name="port" value="tcp"/>
+<param name="tcp_port" value="11412"/>
+</node>
+
+<node pkg="rosserial_python" type="serial_node.py" name="esp_client3"  respawn="true">
+<param name="port" value="tcp"/>
+<param name="tcp_port" value="11413"/>
+</node>
+
+</launch>

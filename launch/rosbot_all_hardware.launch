@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+    <arg name="rosbot_pro" default="false"/>
+    <arg name="rosbot_version" default="$(optenv ROSBOT_VER)"/>
+
+    <include file="$(find astra_launch)/launch/astra.launch"/>
+
+    <include file="$(find rplidar_ros)/launch/rplidar.launch"/>
+
+    <node pkg="tf" type="static_transform_publisher" name="laser_publisher" args="0 0 0.058 3.14159 0 0 base_link laser 100" />
+
+    <node pkg="tf" type="static_transform_publisher" name="imu_publisher" args="0 0 0.02 0 0 0 base_link imu_link 100" />
+
+    <node pkg="tf" type="static_transform_publisher" name="camera_publisher" args="-0.03 0 0.18 0 0 0 base_link camera_link 100" />
+
+<!-- here you have to chose appropirate launch depending on your rosbot firmware - I'm strongly recommend to install new firmware it has some utilites including Extended Kalman Filter -->
+
+    
+    <!-- NEW FIRMWARE -->
+    <include file="$(find rosbot)/launch/all.launch"/>
+ 
+    <!-- OLD FIRMWARE -->
+   <!--  
+
+    <node pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/> 
+    <node pkg="tutorial_pkg" type="serial_bridge.sh" name="serial_bridge"   /> 
+    -->
+
+
+</launch>
