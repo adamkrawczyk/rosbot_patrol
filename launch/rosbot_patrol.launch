@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 
-    <arg name="use_esp" default="true"/>
-    
 
                                 <!-- Image compression -->
     <node pkg="image_transport" type="republish" name="rgb_compress" args="raw in:=/camera/rgb/image_raw compressed out:=/rgb_republish">
@@ -15,9 +13,6 @@
     <arg name="map_file" default="$(find rosbot_patrol)/maps/testv2.yaml"/>       <!-- map arg -->
     <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" respawn="true" />
 
-
-
- <include if="$(arg use_esp)" file="$(find rosbot_patrol)/launch/esp_connector.launch"/>
 
   <!-- patrol node -->
 <node pkg="rosbot_patrol" type="patrol_robot" name="patrolling_node" output="screen" respawn="true">
