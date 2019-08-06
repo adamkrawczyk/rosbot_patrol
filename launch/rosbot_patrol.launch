@@ -17,7 +17,7 @@
   <!-- patrol node -->
 <node pkg="rosbot_patrol" type="patrol_robot" name="patrolling_node" output="screen" respawn="true">
 <!-- path to file  with  params of points --> 
-<param name="path_to_params" type="string" value="$(find rosbot_patrol)/params/room_points_biuro.yaml" />
+<param name="path_to_params" type="string" value="$(find rosbot_patrol)/params/room_points.yaml" />
 <param name="email_to" type="string" value="*****@**.**" />
 <param name="email_from" type="string" value="*****@****.***" /> 
 </node>
