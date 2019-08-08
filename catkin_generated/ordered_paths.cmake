@@ -1,0 +1,1 @@
+set(ORDERED_PATHS "/home/adam/rosbot/rosbot_ws/devel/lib;/opt/ros/kinetic/lib")

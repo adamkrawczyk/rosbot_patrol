@@ -84,6 +84,7 @@ void espCallback(const rosbot_patrol::EspTrigger &trigger_msg) {
     }
 
     spin_made = pn.makeSpin(M_PI , 0);
+    spin_made = pn.makeSpin(M_PI , 0);
     if (spin_made) {
       ROS_INFO("I've just scanned room");
     }
