@@ -1,8 +1,0 @@
-prefix=/usr/local
-
-Name: rosbot_patrol
-Description: Description of rosbot_patrol
-Version: 0.0.0
-Cflags: -I/usr/local/include
-Libs: -L/usr/local/lib 
-Requires: message_runtime

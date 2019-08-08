@@ -1,8 +1,0 @@
-prefix=/home/adam/git_projects/rosbot_patrol/devel
-
-Name: rosbot_patrol
-Description: Description of rosbot_patrol
-Version: 0.0.0
-Cflags: -I/home/adam/git_projects/rosbot_patrol/devel/include
-Libs: -L/home/adam/git_projects/rosbot_patrol/devel/lib 
-Requires: message_runtime
