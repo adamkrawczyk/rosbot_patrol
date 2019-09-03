@@ -18,7 +18,7 @@
 
     
     <!-- NEW FIRMWARE -->
-    <include file="$(find rosbot)/launch/all.launch"/>
+    <include file="$(find rosbot_ekf)/launch/all.launch"/>
  
     <!-- OLD FIRMWARE -->
    <!--  
