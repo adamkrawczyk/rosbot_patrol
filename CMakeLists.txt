@@ -5,7 +5,6 @@ add_compile_options(-std=c++11)
 
 find_package(catkin REQUIRED COMPONENTS
   message_generation
-  frontier_exploration
   geometry_msgs
   gmapping
   move_base

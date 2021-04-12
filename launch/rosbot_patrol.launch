@@ -10,7 +10,7 @@
     <include file="$(find rosbot_patrol)/launch/rosbot_all_hardware.launch"/>
     <include file="$(find rosbot_patrol)/launch/rosbot_all_algorithms.launch"/> 
     
-    <arg name="map_file" default="$(find rosbot_patrol)/maps/testv2.yaml"/>       <!-- map arg -->
+    <arg name="map_file" default="$(find rosbot_patrol)/maps/rosbot_map.yaml"/>       <!-- map arg -->
     <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" respawn="true" />
 
 

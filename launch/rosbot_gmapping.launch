@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-
-
     <include file="$(find rosbot_patrol)/launch/rosbot_all_hardware.launch"/>
     <include file="$(find rosbot_patrol)/launch/move_base_only.launch"/>
     <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard" output="screen"/>
-    <include file="$(find rosbot_patrol)/launch/gmapping_only.launch" />        
-
+    <include file="$(find rosbot_patrol)/launch/gmapping_only.launch" />
 </launch>
 
